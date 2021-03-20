@@ -1,0 +1,1172 @@
+|ALU
+a[0] => ALU_1_BIT:Alu0stage1.a
+a[1] => ALU_1_BIT:leftAlus:1:Alusstage1.a
+a[2] => ALU_1_BIT:leftAlus:2:Alusstage1.a
+a[3] => ALU_1_BIT:leftAlus:3:Alusstage1.a
+a[4] => ALU_1_BIT:leftAlus:4:Alusstage1.a
+a[5] => ALU_1_BIT:leftAlus:5:Alusstage1.a
+a[6] => ALU_1_BIT:leftAlus:6:Alusstage1.a
+a[7] => ALU_1_BIT:leftAlus:7:Alusstage1.a
+a[8] => ALU_1_BIT:leftAlus:8:Alusstage1.a
+a[9] => ALU_1_BIT:leftAlus:9:Alusstage1.a
+a[10] => ALU_1_BIT:leftAlus:10:Alusstage1.a
+a[11] => ALU_1_BIT:leftAlus:11:Alusstage1.a
+a[12] => ALU_1_BIT:leftAlus:12:Alusstage1.a
+a[13] => ALU_1_BIT:leftAlus:13:Alusstage1.a
+a[14] => ALU_1_BIT:leftAlus:14:Alusstage1.a
+a[15] => ALU_1_BIT:leftAlus:15:Alusstage1.a
+b[0] => ALU_1_BIT:Alu0stage1.b
+b[1] => ALU_1_BIT:leftAlus:1:Alusstage1.b
+b[2] => ALU_1_BIT:leftAlus:2:Alusstage1.b
+b[3] => ALU_1_BIT:leftAlus:3:Alusstage1.b
+b[4] => ALU_1_BIT:leftAlus:4:Alusstage1.b
+b[5] => ALU_1_BIT:leftAlus:5:Alusstage1.b
+b[6] => ALU_1_BIT:leftAlus:6:Alusstage1.b
+b[7] => ALU_1_BIT:leftAlus:7:Alusstage1.b
+b[8] => ALU_1_BIT:leftAlus:8:Alusstage1.b
+b[9] => ALU_1_BIT:leftAlus:9:Alusstage1.b
+b[10] => ALU_1_BIT:leftAlus:10:Alusstage1.b
+b[11] => ALU_1_BIT:leftAlus:11:Alusstage1.b
+b[12] => ALU_1_BIT:leftAlus:12:Alusstage1.b
+b[13] => ALU_1_BIT:leftAlus:13:Alusstage1.b
+b[14] => ALU_1_BIT:leftAlus:14:Alusstage1.b
+b[15] => ALU_1_BIT:leftAlus:15:Alusstage1.b
+opcode[0] => control_circuit:Selection.opcode[0]
+opcode[1] => control_circuit:Selection.opcode[1]
+opcode[2] => control_circuit:Selection.opcode[2]
+overflow <= overflow~0.DB_MAX_OUTPUT_PORT_TYPE
+Result[0] <= ALU_1_BIT:Alu0stage1.f
+Result[1] <= ALU_1_BIT:leftAlus:1:Alusstage1.f
+Result[2] <= ALU_1_BIT:leftAlus:2:Alusstage1.f
+Result[3] <= ALU_1_BIT:leftAlus:3:Alusstage1.f
+Result[4] <= ALU_1_BIT:leftAlus:4:Alusstage1.f
+Result[5] <= ALU_1_BIT:leftAlus:5:Alusstage1.f
+Result[6] <= ALU_1_BIT:leftAlus:6:Alusstage1.f
+Result[7] <= ALU_1_BIT:leftAlus:7:Alusstage1.f
+Result[8] <= ALU_1_BIT:leftAlus:8:Alusstage1.f
+Result[9] <= ALU_1_BIT:leftAlus:9:Alusstage1.f
+Result[10] <= ALU_1_BIT:leftAlus:10:Alusstage1.f
+Result[11] <= ALU_1_BIT:leftAlus:11:Alusstage1.f
+Result[12] <= ALU_1_BIT:leftAlus:12:Alusstage1.f
+Result[13] <= ALU_1_BIT:leftAlus:13:Alusstage1.f
+Result[14] <= ALU_1_BIT:leftAlus:14:Alusstage1.f
+Result[15] <= ALU_1_BIT:leftAlus:15:Alusstage1.f
+
+
+|ALU|control_circuit:Selection
+opcode[0] => Equal0.IN0
+opcode[0] => Equal1.IN2
+opcode[0] => Equal2.IN1
+opcode[0] => Equal3.IN2
+opcode[0] => Equal4.IN1
+opcode[0] => Equal5.IN2
+opcode[0] => Equal6.IN2
+opcode[1] => Equal0.IN2
+opcode[1] => Equal1.IN0
+opcode[1] => Equal2.IN0
+opcode[1] => Equal3.IN1
+opcode[1] => Equal4.IN2
+opcode[1] => Equal5.IN1
+opcode[1] => Equal6.IN1
+opcode[2] => Equal0.IN1
+opcode[2] => Equal1.IN1
+opcode[2] => Equal2.IN2
+opcode[2] => Equal3.IN0
+opcode[2] => Equal4.IN0
+opcode[2] => Equal5.IN0
+opcode[2] => Equal6.IN0
+soperation[0] <= soperation[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+soperation[1] <= soperation[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sAinvert[0] <= sAinvert[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sBinvert[0] <= sBinvert[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sCarryIn[0] <= sCarryIn[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:Alu0stage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:Alu0stage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:Alu0stage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:Alu0stage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:Alu0stage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:Alu0stage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:Alu0stage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:Alu0stage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1
+a => my_mux2to1Ainvert:Step0.a
+b => my_mux2to1Binvert:Step1.b
+Ainvert => my_mux2to1Ainvert:Step0.Ainvert
+Binvert => my_mux2to1Binvert:Step1.Binvert
+CarryIn => fullAdd:Step4.CarryIn
+operation[0] => my_mux4to1:Step6.operation[0]
+operation[1] => my_mux4to1:Step6.operation[1]
+CarryOut <= fullAdd:Step4.CO
+f <= my_mux4to1:Step6.out1
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|my_mux2to1Ainvert:Step0
+a => out1~0.DATAB
+a => out1~0.DATAA
+Ainvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|my_mux2to1Binvert:Step1
+b => out1~0.DATAB
+b => out1~0.DATAA
+Binvert => out1~0.OUTPUTSELECT
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|product_of_2:Step2
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|addition_of_2:Step3
+a => out1~0.IN0
+b => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|fullAdd:Step4
+CarryIn => Sum~1.IN1
+CarryIn => CO~1.IN0
+CarryIn => CO~3.IN0
+x => Sum~0.IN0
+x => CO~0.IN0
+x => CO~1.IN1
+y => Sum~0.IN1
+y => CO~0.IN1
+y => CO~3.IN1
+Sum <= Sum~1.DB_MAX_OUTPUT_PORT_TYPE
+CO <= CO~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|xor_of_2:Step5
+x1 => out1~0.IN0
+x2 => out1~0.IN1
+out1 <= out1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|my_mux4to1:Step6
+w0 => Mux0.IN0
+w1 => Mux0.IN1
+w2 => Mux0.IN2
+w3 => Mux0.IN3
+operation[0] => Mux0.IN5
+operation[1] => Mux0.IN4
+out1 <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

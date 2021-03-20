@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="ALU">
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:Alu0stage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux4to1:Step6|lpm_mux:Mux0" CBX_FILE_NAME="mux_umc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

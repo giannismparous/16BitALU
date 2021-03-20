@@ -1,0 +1,406 @@
+Analysis & Synthesis report for ALU
+Sun May 24 14:11:58 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "control_circuit:Selection"
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun May 24 14:11:58 2020           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; ALU                                             ;
+; Top-level Entity Name              ; ALU                                             ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 109                                             ;
+;     Total combinational functions  ; 109                                             ;
+;     Dedicated logic registers      ; 0                                               ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 52                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C5F256C6        ;                    ;
+; Top-level entity name                                                      ; ALU                ; ALU                ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                ;
++----------------------------------+-----------------+-----------------+--------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path         ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------+---------+
+; ALU.vhd                          ; yes             ; User VHDL File  ; /home/thodoris/Desktop/FINAL/ALU.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                         ;
++---------------------------------------------+---------------------------------------+
+; Resource                                    ; Usage                                 ;
++---------------------------------------------+---------------------------------------+
+; Estimated Total logic elements              ; 109                                   ;
+;                                             ;                                       ;
+; Total combinational functions               ; 109                                   ;
+; Logic element usage by number of LUT inputs ;                                       ;
+;     -- 4 input functions                    ; 72                                    ;
+;     -- 3 input functions                    ; 10                                    ;
+;     -- <=2 input functions                  ; 27                                    ;
+;                                             ;                                       ;
+; Logic elements by mode                      ;                                       ;
+;     -- normal mode                          ; 109                                   ;
+;     -- arithmetic mode                      ; 0                                     ;
+;                                             ;                                       ;
+; Total registers                             ; 0                                     ;
+;     -- Dedicated logic registers            ; 0                                     ;
+;     -- I/O registers                        ; 0                                     ;
+;                                             ;                                       ;
+; I/O pins                                    ; 52                                    ;
+; Embedded Multiplier 9-bit elements          ; 0                                     ;
+; Maximum fan-out node                        ; control_circuit:Selection|sAinvert[0] ;
+; Maximum fan-out                             ; 41                                    ;
+; Total fan-out                               ; 389                                   ;
+; Average fan-out                             ; 2.42                                  ;
++---------------------------------------------+---------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; |ALU                                   ; 109 (1)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 52   ; 0            ; |ALU                                                           ; work         ;
+;    |ALU_1_BIT:Alu0stage1|              ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:Alu0stage1                                      ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:Alu0stage1|fullAdd:Step4                        ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:Alu0stage1|my_mux2to1Ainvert:Step0              ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:Alu0stage1|my_mux2to1Binvert:Step1              ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:Alu0stage1|my_mux4to1:Step6                     ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:Alu0stage1|xor_of_2:Step5                       ; work         ;
+;    |ALU_1_BIT:\leftAlus:10:Alusstage1| ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:10:Alusstage1                         ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|fullAdd:Step4           ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|my_mux2to1Ainvert:Step0 ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|my_mux2to1Binvert:Step1 ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|my_mux4to1:Step6        ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:10:Alusstage1|xor_of_2:Step5          ; work         ;
+;    |ALU_1_BIT:\leftAlus:11:Alusstage1| ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:11:Alusstage1                         ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|fullAdd:Step4           ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|my_mux2to1Binvert:Step1 ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:11:Alusstage1|my_mux4to1:Step6        ; work         ;
+;    |ALU_1_BIT:\leftAlus:12:Alusstage1| ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:12:Alusstage1                         ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|fullAdd:Step4           ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|my_mux2to1Ainvert:Step0 ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|my_mux2to1Binvert:Step1 ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|my_mux4to1:Step6        ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:12:Alusstage1|xor_of_2:Step5          ; work         ;
+;    |ALU_1_BIT:\leftAlus:13:Alusstage1| ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:13:Alusstage1                         ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|fullAdd:Step4           ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|my_mux2to1Binvert:Step1 ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:13:Alusstage1|my_mux4to1:Step6        ; work         ;
+;    |ALU_1_BIT:\leftAlus:14:Alusstage1| ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:14:Alusstage1                         ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|fullAdd:Step4           ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|my_mux2to1Ainvert:Step0 ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|my_mux2to1Binvert:Step1 ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|my_mux4to1:Step6        ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:14:Alusstage1|xor_of_2:Step5          ; work         ;
+;    |ALU_1_BIT:\leftAlus:15:Alusstage1| ; 5 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:15:Alusstage1                         ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|my_mux2to1Binvert:Step1 ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:15:Alusstage1|my_mux4to1:Step6        ; work         ;
+;    |ALU_1_BIT:\leftAlus:1:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:1:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:1:Alusstage1|my_mux4to1:Step6         ; work         ;
+;    |ALU_1_BIT:\leftAlus:2:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:2:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|my_mux2to1Ainvert:Step0  ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|my_mux4to1:Step6         ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:2:Alusstage1|xor_of_2:Step5           ; work         ;
+;    |ALU_1_BIT:\leftAlus:3:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:3:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:3:Alusstage1|my_mux4to1:Step6         ; work         ;
+;    |ALU_1_BIT:\leftAlus:4:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:4:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|my_mux2to1Ainvert:Step0  ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|my_mux4to1:Step6         ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:4:Alusstage1|xor_of_2:Step5           ; work         ;
+;    |ALU_1_BIT:\leftAlus:5:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:5:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:5:Alusstage1|my_mux4to1:Step6         ; work         ;
+;    |ALU_1_BIT:\leftAlus:6:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:6:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|my_mux2to1Ainvert:Step0  ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|my_mux4to1:Step6         ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:6:Alusstage1|xor_of_2:Step5           ; work         ;
+;    |ALU_1_BIT:\leftAlus:7:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:7:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:7:Alusstage1|my_mux4to1:Step6         ; work         ;
+;    |ALU_1_BIT:\leftAlus:8:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:8:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Ainvert:Step0|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux2to1Ainvert:Step0  ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux4to1:Step6         ; work         ;
+;       |xor_of_2:Step5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|xor_of_2:Step5           ; work         ;
+;    |ALU_1_BIT:\leftAlus:9:Alusstage1|  ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:9:Alusstage1                          ; work         ;
+;       |fullAdd:Step4|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|fullAdd:Step4            ; work         ;
+;       |my_mux2to1Binvert:Step1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|my_mux2to1Binvert:Step1  ; work         ;
+;       |my_mux4to1:Step6|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|ALU_1_BIT:\leftAlus:9:Alusstage1|my_mux4to1:Step6         ; work         ;
+;    |control_circuit:Selection|         ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU|control_circuit:Selection                                 ; work         ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; control_circuit:Selection|sAinvert[0]              ; GND                 ; yes                    ;
+; control_circuit:Selection|sCarryIn[0]              ; GND                 ; yes                    ;
+; control_circuit:Selection|sBinvert[0]              ; GND                 ; yes                    ;
+; control_circuit:Selection|soperation[1]            ; GND                 ; yes                    ;
+; control_circuit:Selection|soperation[0]            ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 5  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |ALU|ALU_1_BIT:\leftAlus:8:Alusstage1|my_mux4to1:Step6|Mux0 ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |ALU|control_circuit:Selection|sBinvert[0]                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_circuit:Selection"                               ;
++----------+--------+----------+------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                              ;
++----------+--------+----------+------------------------------------------------------+
+; sainvert ; Output ; Info     ; Connecting a non-array bit to a single-element array ;
+; sbinvert ; Output ; Info     ; Connecting a non-array bit to a single-element array ;
+; scarryin ; Output ; Info     ; Connecting a non-array bit to a single-element array ;
++----------+--------+----------+------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun May 24 14:11:56 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU -c ALU
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 20 design units, including 10 entities, in source file ALU.vhd
+    Info (12022): Found design unit 1: my_mux4to1-Behavior
+    Info (12022): Found design unit 2: product_of_2-model_conc
+    Info (12022): Found design unit 3: addition_of_2-model_conc
+    Info (12022): Found design unit 4: fullAdd-LogicFunc
+    Info (12022): Found design unit 5: my_mux2to1Binvert-Behavior
+    Info (12022): Found design unit 6: my_mux2to1Ainvert-Behavior
+    Info (12022): Found design unit 7: xor_of_2-model_conc
+    Info (12022): Found design unit 8: ALU_1_BIT-structural
+    Info (12022): Found design unit 9: control_circuit-Behavior
+    Info (12022): Found design unit 10: ALU-Structure
+    Info (12023): Found entity 1: my_mux4to1
+    Info (12023): Found entity 2: product_of_2
+    Info (12023): Found entity 3: addition_of_2
+    Info (12023): Found entity 4: fullAdd
+    Info (12023): Found entity 5: my_mux2to1Binvert
+    Info (12023): Found entity 6: my_mux2to1Ainvert
+    Info (12023): Found entity 7: xor_of_2
+    Info (12023): Found entity 8: ALU_1_BIT
+    Info (12023): Found entity 9: control_circuit
+    Info (12023): Found entity 10: ALU
+Info (12127): Elaborating entity "ALU" for the top level hierarchy
+Info (12128): Elaborating entity "control_circuit" for hierarchy "control_circuit:Selection"
+Info (10041): Inferred latch for "sCarryIn[0]" at ALU.vhd(243)
+Info (10041): Inferred latch for "sBinvert[0]" at ALU.vhd(236)
+Info (10041): Inferred latch for "sAinvert[0]" at ALU.vhd(229)
+Info (10041): Inferred latch for "soperation[0]" at ALU.vhd(221)
+Info (10041): Inferred latch for "soperation[1]" at ALU.vhd(221)
+Info (12128): Elaborating entity "ALU_1_BIT" for hierarchy "ALU_1_BIT:Alu0stage1"
+Info (12128): Elaborating entity "my_mux2to1Ainvert" for hierarchy "ALU_1_BIT:Alu0stage1|my_mux2to1Ainvert:Step0"
+Info (12128): Elaborating entity "my_mux2to1Binvert" for hierarchy "ALU_1_BIT:Alu0stage1|my_mux2to1Binvert:Step1"
+Info (12128): Elaborating entity "product_of_2" for hierarchy "ALU_1_BIT:Alu0stage1|product_of_2:Step2"
+Info (12128): Elaborating entity "addition_of_2" for hierarchy "ALU_1_BIT:Alu0stage1|addition_of_2:Step3"
+Info (12128): Elaborating entity "fullAdd" for hierarchy "ALU_1_BIT:Alu0stage1|fullAdd:Step4"
+Info (12128): Elaborating entity "xor_of_2" for hierarchy "ALU_1_BIT:Alu0stage1|xor_of_2:Step5"
+Info (12128): Elaborating entity "my_mux4to1" for hierarchy "ALU_1_BIT:Alu0stage1|my_mux4to1:Step6"
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 161 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 35 input pins
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 109 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 633 megabytes
+    Info: Processing ended: Sun May 24 14:11:58 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
